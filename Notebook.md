@@ -63,3 +63,25 @@ Create/upgrade a website that analyses the data in an efficient way. Our website
   
 #### Up Next
 This next week, we will finalize the list of project requirements and meet with Jim Skon to get time estimates for each section of the project in order to divide the work. This will allow us to begin our individual components of the project. I also plan to talk to Skon about Tableau to make sure it will be appropriate for his dataset. 
+
+
+# Week 3 Notebook
+### 2/5/18-2/11/18
+
+This week, most of my efforst were in researching Tableau and HighChart, and deciding which visualizations to include in the final project. After some thought, I decided to download Tableau and try to make a visualization. I also created a mockup of what will be included in each page of the website. A layout description and walkthrough of Tableau is below. 
+
+#### Layout
+Created list of personal requirements for the layout of the website and data visualizations
+1. Improve homepage - brief project description, example visualization
+2. Include project description page - description, history, pictures
+3. Include importance and background of solar - Location description, possible weather, diagram of panel connections and how it works.
+4. Power produced from solar panels page - user interaction with changing time and/or locations
+5. Cost analysis page - stacked bars, user interaction with location
+6. Performance decay page - stacked bars, user interaction with location
+
+#### Tableau
+Need to be able to import a data set and provide the appropriate visualization. The goal of this exercise was to see if Tableau is an appropriate choice for the data visualizations we want. 
+
+The data set that I used was the csv file from August 2016, which is an example data set on his project site. This gave data on the specific locations, where the data was split into 4 columns (location, watts vs. volts, amount of watts or volts, time stamp). Tableau has a quick and easy way to import a data set - Connect, to a file, text file, select file on local machine. Once the data set is connected, select the Sheet 1 tab on the bottom of the page. This will take you to the page where you can create your data visualizations. From here, you can drag dimensions and/or measures to the columns/rows input bars. 
+
+The current data set isn't labeled so I still have to figure out how to create appropriate labels for the graphs. From this exercise, I created two different types of visualizations. One that is one line graph where hours (24) is on the x-axis and volts is on the y-axis. The user can overlay their mouse along the visualization where they are told the location, exact hour and number of volts corresponding to that line. The lines are also different colors to indicate the different locations. Tableau also generated a legend where the user could tell which color corresponds to which location without having to interact with the graph. Another visualization that I created is very similar to the first but I was able to split it up into different graphs depending on the location. 
