@@ -1,4 +1,4 @@
-# Week 1 Notebook
+# Week 2 Notebook
 ### 1/29/18-2/4/18
 #### Advisor: Jim Skon
 Spoke with Jim Skon about the Belize Solar Panel data he has been collecting with the goal of creating a better website for data visualization. Decided to collaborate with Kara Braun and Matt Carney on the project. Below is some research and tenative plans for the course of the project.
@@ -68,6 +68,7 @@ This next week, we will finalize the list of project requirements and meet with 
 # Week 3 Notebook
 ### 2/5/18-2/11/18
 
+#### Overview
 This week, most of my efforst were in researching Tableau and HighChart, and deciding which visualizations to include in the final project. After some thought, I decided to download Tableau and try to make a visualization. I also created a mockup of what will be included in each page of the website. A layout description and walkthrough of Tableau is below. 
 
 #### Layout
@@ -85,3 +86,16 @@ Need to be able to import a data set and provide the appropriate visualization. 
 The data set that I used was the csv file from August 2016, which is an example data set on his project site. This gave data on the specific locations, where the data was split into 4 columns (location, watts vs. volts, amount of watts or volts, time stamp). Tableau has a quick and easy way to import a data set - Connect, to a file, text file, select file on local machine. Once the data set is connected, select the Sheet 1 tab on the bottom of the page. This will take you to the page where you can create your data visualizations. From here, you can drag dimensions and/or measures to the columns/rows input bars. 
 
 The current data set isn't labeled so I still have to figure out how to create appropriate labels for the graphs. From this exercise, I created two different types of visualizations. One that is one line graph where hours (24) is on the x-axis and volts is on the y-axis. The user can overlay their mouse along the visualization where they are told the location, exact hour and number of volts corresponding to that line. The lines are also different colors to indicate the different locations. Tableau also generated a legend where the user could tell which color corresponds to which location without having to interact with the graph. Another visualization that I created is very similar to the first but I was able to split it up into different graphs depending on the location. 
+
+# Week 4 Notebook
+### 2/12/18-2/18/18
+
+#### Overview
+This week, I recieved website code from Professor Skon and experimented more with Tableau. Skon gave me access to the html and js files for the project. 
+
+#### Setting up website to personal computer 
+After recieving the html and js files and reviewing them, the next step was to get the website working on my personal computer since I don't have access to his log in information. My goal was to be able to get the website running on my computer through the Kenyon cs server, which I have access to through another course. 
+
+In order to access code, I viewed the page source on the current website in order to get the code for html and js. Then, through BBEdit, I created new personal files called Solar.html, Solarx.js, Solar.css and my Makefile. Through my Linux terminal, I created a new project (SolarProject) then saved my new files to that location. I added the current code to the html and js files, and created my Makefile. In order for the Makefile to push my files to the cs server, I created a new directory (mkdir) on the server and used my Makefile to allow me to view the html on Chrome. 
+
+After this, it seems like I have files missing that I currently don't have access to since the html is very minimal and doesn't look much like the original website. 
