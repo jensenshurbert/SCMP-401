@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<meta http-equiv="refresh" content="3000" >
+<html>
+    <head>
+        <meta charset="UTF-8">
+            <title>Belize Solar Summary</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+                <script src="RGraph/libraries/RGraph.common.core.js"></script>
+		<script src="RGraph/libraries/RGraph.common.dynamic.js"></script>
+		<script src="RGraph/libraries/RGraph.common.tooltips.js"></script>
+                <script src="RGraph/libraries/RGraph.gauge.js"></script>
+		<script src="RGraph/libraries/RGraph.bar.js"></script>
+		<script src="RGraph/libraries/RGraph.line.js"></script>
+		<script src="RGraph/libraries/RGraph.hprogress.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+		<link rel="stylesheet" href="lib/bootstrap-datepicker.min.css">
+		<script src="lib/bootstrap-datepicker.min.js"></script>
+		
+                <style>
+                    table {
+                        border: 1px solid #e0e0e0;
+                        border-collapse: collapse;
+                    }
+                    body {
+                        margin-top: 60px;
+                        margin-bottom: 40px;
+                    }
+                    footer {
+                        bottom:0;
+                        width:100%;
+                        height:40px;   /* Height of the footer */
+                        background:#F5F5F5;
+                    }
+		    .dropdown-menu > li:hover {
+		    background-color: lightgreen;
+		    background-image: none;
+		    }
+		    p.small {
+		    line-height: 60%;
+		    }
+                </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid" id="navBar">
+                <div class="navbar-header" id="header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBarCollapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">Belize Solar Project</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navBarCollapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/solar/Summary.html" id="summaryButton">Summary</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">Locations<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" id="sitelist">
+
+                            </ul>
+                        <li ><a onclick='sitegraphsstart(1);' id="GraphButton">Graphs</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<div class="modal fade" id="pickdate" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Pick Date for Graphs</h4>
+      </div>
+      <div class="modal-body">
+        <div id="datepickergraph">
+	  </div>
+      </div>
+      <div class="modal-footer">
+	<button type="button" class="btn btn-default" onclick="graphsetdate();" data-dismiss="modal">Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="container">
+	  <div id="Summary" class="collapse">
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t1"></h3>
+                	<p id="ts1"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g1" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info1"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t2"></h3>
+                	<p id="ts2"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g2" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info2"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t3"></h3>
+                	<p id="ts3"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g3" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info3"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t4"></h3>
+                	<p id="ts4"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g4" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info4"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t5"></h3>
+                	<p id="ts5"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g5" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info5"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t6"></h3>
+                	<p id="ts6"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g6" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info6"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t7"></h3>
+                	<p id="ts7"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g7" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info7"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t8"></h3>
+                	<p id="ts8"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g8" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info8"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t9"></h3>
+                	<p id="ts9"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g9" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info9"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t10"></h3>
+                	<p id="ts10"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g10" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info10"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t11"></h3>
+                	<p id="ts11"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g11" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info11"></p>
+				</div>
+	    	</div>
+            <div class="row">
+                <div class="col-sm-4">
+                	<h3 id="t12"></h3>
+                	<p id="ts12"></p>
+				</div>
+				<div class="col-sm-6">
+                	<canvas id="g12" width="500" height="80">
+		  			</canvas>
+				</div>
+				<div class="col-sm-2">
+		    		<p id="info12"></p>
+				</div>
+	    	</div>
+
+		</div>
+    </div>
+        <div class="container">
+	    <div id="minuteGraphs" class="collapse">
+	    <div id="graphDate"><center></div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg1" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow1"></p>
+		</div>
+            <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg2" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow2"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg3" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow3"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg4" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow4"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg5" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow5"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg6" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow6"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg7" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow7"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg8" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow8"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg9" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow9"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg10" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow10"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg11" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow11"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg12" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow12"></p>
+		</div>
+            </div>
+        </div>
+	<div id="Site" class="collapse">
+	  <center><h1 id="sitename"></h1><center>
+            <div class="row">
+                <div class="col-sm-3">
+                    <center><h3>Current Power</h3>
+                    <canvas id="gauge" width="350" height="250">
+		    </canvas></center>
+		    <p id="gts"></p>
+		</div>
+                <div class="col-sm-3">
+		  <h3>Stats</h3>
+		  <div id="datatable">
+		  </div>
+		</div>
+                <div class="col-sm-6">
+		  <h3>Watthours by hour for today</h3>
+                    <canvas id="hourlyGraph" width="450" height="300">
+		    </canvas></center>
+		</div>
+	    </div>
+	</div>
+	<div id="Site2" class="collapse">
+	  <center><h1 id="sitename"></h1><center>
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <center>
+		    <h3>KWh/day for last week</h3>
+                    <canvas id="weekgraph" width="450" height="250">
+                    </canvas></center>
+                </div>
+
+                <div class="col-sm-6">
+                    <center>
+                    <canvas id="ytdgraph" width="450" height="250">
+                    </canvas></center>
+                </div>
+	    </div> 
+	</div>
+        <footer class="footer navbar-fixed-bottom">
+            <div class="container-fluid text-left">
+                <p>version 1.0 <br> Powered by Expert Learning Systems, Ltd. © 2016</p>
+            </div>
+        </footer>
+        <script src="Solarx.js"></script>
+    </body>
+</html>
