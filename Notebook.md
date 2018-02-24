@@ -573,3 +573,19 @@ summary(response);
 
 #### Moving Forward
 Meet with Professor Skon to discuss any other files I may need and to review current code and Tableau advancements. 
+
+
+# Week 5 Notebook
+### 2/19/18-2/25/18
+
+#### Overview
+This week, I was able to gain access to the database, set up the current website correctly running on the CS server, and make changes to the html layout of the website.
+
+####  Putting RGraph libraries on my personal computer
+
+
+#### Running a static version of the database as a localhost
+An issue that I ran into was how slow my website was since it had to fetch the data from the cs3 server everytime the website needed new or updated data. This caused my changes to the website to take an extremely long time to load in order to check. Since Kara and Matt are working on the database and analysis, at this point, the website layout isn't affected by whether the data is live or not. Therefore, Professor Skon gave me access to static version of the database that is on my local computer. This is accessed through my PHP file with the following: servername, username, password, and dbname.
+
+#### Alterations to the HTML file
+A major issue of the current website is that each page doesn't have its own html file. This means that no matter where a user is, when the user wishes to refresh the page, they are redirected back to the home summary page. 
