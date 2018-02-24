@@ -5,7 +5,7 @@
 USER= shurbertj
 
 CC= g++
-
+ 
 #For Optimization
 #CFLAGS= -O2
 #For debugging
@@ -19,6 +19,11 @@ all: PutHTML
 
 PutHTML:
 	cp Solar.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Home.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Project.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Importance.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Locations.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Graphs.html /var/www/html/class/softdev/$(USER)/SolarProject/
 	cp Solar.css /var/www/html/class/softdev/$(USER)/SolarProject/
 	cp Solarx.js /var/www/html/class/softdev/$(USER)/SolarProject/
 	cp Solar.php /var/www/html/class/softdev/$(USER)/SolarProject/

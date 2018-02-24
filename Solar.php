@@ -20,12 +20,13 @@ return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_R
 function openSolarDB() {
 		//live database
    //$servername = "cs3.kenyon.edu";
-   		//Snapshot of database
-   $servername = "localhost";
    //$username = "braunk";
    //$password = "S214486";
+   		//Snapshot of database
+   $servername = "localhost";
    $username = "shurbertj";
    $password = "S214141";
+   //both
    $dbname = "LIM-SERV";
 
    // Create connection
