@@ -626,4 +626,4 @@ PutHTML:
 	echo "Current contents of your HTML directory: "
 	ls -l /var/www/html/class/softdev/$(USER)/SolarProject/
 ```
-
+Now I can access any of these pages and click through them in the navigation bar. At this moment, I have blank pages for Home, Project, and Importance. The current issue is that the Graphs and Locations pages are still running from the same Solar html page. My next goal is to move the code around to where Graphs and Locations are running from their own html pages. 
