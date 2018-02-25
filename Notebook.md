@@ -581,11 +581,49 @@ Meet with Professor Skon to discuss any other files I may need and to review cur
 #### Overview
 This week, I was able to gain access to the database, set up the current website correctly running on the CS server, and make changes to the html layout of the website.
 
-####  Putting RGraph libraries on my personal computer
-
+####  Putting Bootstrapping and RGraph libraries in my personal project file
+Last week, my main issue was that my version of the website layout wasn't registering. It appeared that the bootstrapping wasn't being applied. I met with Professor Skon and he mentioned that he was refering to a local version of his bootstrap instead of off the internet. Through FileZilla, he logged into his account and copied the Bootstrapping file into my project folder. I then could do the following line of code to apply bootstrapping to my site. 
+```
+<link rel="stylesheet" href="lib/bootstrap-datepicker.min.css">
+<script src="lib/bootstrap-datepicker.min.js"></script>
+```
+This allowed my website to have the correct style for the navigation bar, but the rest of the website material still wasn't there. This was because my website wasn't connected to the database correctly. Since the final database connection won't be applied until Kara and Matt have done some more work, I chose to connect the current database with the current PHP file in order to view the current layout. The goal with this is so I can make changes to the current website layout as it currently stands. In order to get the graphs and data visualizations on my site, I had to put the RGraphs folder that Professor Skon had on his local project file into my own. This was done with FileZilla aswell, and then I was able to use the following code. 
+```
+<script src="RGraph/libraries/RGraph.common.core.js"></script>
+<script src="RGraph/libraries/RGraph.common.dynamic.js"></script>
+<script src="RGraph/libraries/RGraph.common.tooltips.js"></script>
+<script src="RGraph/libraries/RGraph.gauge.js"></script>
+<script src="RGraph/libraries/RGraph.bar.js"></script>
+<script src="RGraph/libraries/RGraph.line.js"></script>
+<script src="RGraph/libraries/RGraph.hprogress.js"></script>
+```
+After this, my website was able to appear the same as Professor Skons, with the correct navigation bar, and each page had the same data visualizations. 
 
 #### Running a static version of the database as a localhost
-An issue that I ran into was how slow my website was since it had to fetch the data from the cs3 server everytime the website needed new or updated data. This caused my changes to the website to take an extremely long time to load in order to check. Since Kara and Matt are working on the database and analysis, at this point, the website layout isn't affected by whether the data is live or not. Therefore, Professor Skon gave me access to static version of the database that is on my local computer. This is accessed through my PHP file with the following: servername, username, password, and dbname.
+An issue that I ran into was how slow my website was since it had to fetch the data from the cs3 server everytime the website needed new or updated data. This caused my changes to the website to take an extremely long time to load in order to check. Since Kara and Matt are working on the database and analysis, at this point, the website layout isn't affected by whether the data is live or not. Therefore, Professor Skon gave me access to static version of the database that is on my local computer. This is accessed through my PHP file with the following: servername, username, password, and dbname. Here are the changes I made in the PHP file in order to access it. 
+```
+   $servername = "localhost";
+   $username = "******";
+   $password = "******";
+   $dbname = "LIM-SERV";
+```
+Now the data doesn't have to be fetched from the cs3 server, the loading time isnt as long. This allows me to check my changes to the website layout in a quicker way since everytime a user changes a page on the website, the data had to be fetched. 
 
 #### Alterations to the HTML file
-A major issue of the current website is that each page doesn't have its own html file. This means that no matter where a user is, when the user wishes to refresh the page, they are redirected back to the home summary page. 
+A major issue of the current website is that each page doesn't have its own html file. This means that no matter where a user is, when the user wishes to refresh the page, they are redirected back to the home summary page. Currently, the website is running off of one html file. My first additions were to add new html files for each page of the website. After doing that, I added the following code to my Makefile in order to be able to access the files on the CS server.
+```
+PutHTML:
+	cp Solar.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Home.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Project.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Importance.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Locations.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Graphs.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Solar.css /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Solarx.js /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Solar.php /var/www/html/class/softdev/$(USER)/SolarProject/
+
+	echo "Current contents of your HTML directory: "
+	ls -l /var/www/html/class/softdev/$(USER)/SolarProject/
+```
+
