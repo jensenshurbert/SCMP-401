@@ -627,3 +627,14 @@ PutHTML:
 	ls -l /var/www/html/class/softdev/$(USER)/SolarProject/
 ```
 Now I can access any of these pages and click through them in the navigation bar. At this moment, I have blank pages for Home, Project, and Importance. The current issue is that the Graphs and Locations pages are still running from the same Solar html page. My next goal is to move the code around to where Graphs and Locations are running from their own html pages. 
+
+
+#### Connection with Tableau
+In order to connect a visualization from Tableau to my website, there are a few steps to take. The overall process is to put the visualization on Tableau Public, then get the embedded code and put it in the html code. First step is to make sure that we have a Tableau Public account, since we have an account for Tableau Desktop, this isn't an issue. This is where you can see all data visualizations that you have done and published to Tableau Public. In order to publicize the visualization, on the desktop version of Tableau, go to Server, then Public Workbook. If you get an error message, create a data extract by clicking off of live data to an extract. In order to do this, change connection to extract, edit, save as aggregate to local machine. Then try to publish workbook again. This publicizes your workbook onto Tableau Public. From here, get the embedded code from the share icon below the visualization. Copy and paste it into the correct place in the html file. 
+
+After these steps, your data visualization showed up on my website! 
+
+#### Next Steps
+1. Complete website restructuring into unique html files for each page. 
+2. Research live data connection with website for Tableau. 
+3. Start filling in Home, Our Work, and Importance pages. 
