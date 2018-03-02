@@ -16,3 +16,19 @@ Although I find myself fairly confident and calm when giving presentations, givi
 
 4. Moving forward: 
 I think that a big skill that I want to work on during this semester-long project is self-motivation when it isn't my week to present. This past week, I found myself extremely motivated, but I am curious if most of that was due to our long presentation. My hope is to continue working hard each week and keep my work load relatively even each week. I set up weekly meetings with Professor Skon to assure that I stay on task. 
+
+# Reflection 2 
+#### Week 6 Presentation 
+
+This week's presentation came shortly after making multiple unfortunate discoveries about my progress. I first figured out that I cannot use Tableau if I want to have a live connection with the data. I also found out that much of Professor Skon's code, which I thought I could recycle and just change minimally, needs to be completely rewritten. Although this is a setback, it allowed me to outline my next steps with Professor Skon, which I think will put me right back on track. 
+
+Although technically this was a setback and much of my work that I have done so far won't be applicable to our final product, there are many skills that I worked on in the recent weeks that will be helpful moving forward. 
+
+1. Experience in data visualization software:
+Although I won't be able to use Tableau for this project, I did a lot of work with that specific software and figured out what type of visualizations I want. This will help me in many ways moving forward.
+
+2. Overcoming Issues
+As you can see, I am at a part in my project where I have to take a different path than I was previously anticipating. Although it was definitely a bummer at first, I think it will put me in a much better position moving forward in that I can focus now on connectivity that I will need regardless. With this, there is no way that I will get the same kind of set back that I just experienced. 
+
+3. Moving Forward
+My mindset needs to change a little bit from figuring out the data visualizations to understanding and setting up the code behind fetching the data when a user requests some data. Once I complete this, I will be able to use a data visualization tool (Highcharts?) in order to connect the data to the website's html pages. 
