@@ -638,3 +638,51 @@ After these steps, your data visualization showed up on my website!
 1. Complete website restructuring into unique html files for each page. 
 2. Research live data connection with website for Tableau. 
 3. Start filling in Home, Our Work, and Importance pages. 
+
+# Week 6 Notebook
+### 2/26/18-3/18/18
+
+#### Overview
+This past week (including Spring Break) there was a lot that was needed to be changed about the project. For one, I figured out that Tableau could not be used for live data, which lead me to change my focus. My goal for this week was to create a C++ file that would output dummp solar XML data. I did this in order to make sure that I could understand the conneciton between my HTML&JS files with the C++ file that Kara will be making in order to allow the live solar data to reach the website. I will be walking through how I achieved this, including some decisions I made along the way. 
+
+#### JSON vs. XML
+Immediately prior to my last presentation, I decided that I would be creating the C++ file to write dummy JSON data. Professor Skon and I agreed that this would be an acceptable way to display the data. After speaking with my team at the end of the week, we decided that XML will be better since all three of us are familiar with using it, and the current data is displayed as long strings that Kara would know how to easily parse them into XML. 
+
+#### Dummy C++ File
+The first step of my goal was the create my dummy C++ file. For clarification, I refer to it as "dummy" because this will not be the file that will be used in our final project, but rather act as a placeholder since our project's C++ file is not complete. For this, I chose to include specific information in the XML for each location (site name, banks, # of panels for that bank, current power for that bank). I used the following code to achieve this.
+```
+cout << "Content-Type: text/plain\n\n";
+  cout << "<?xml version=\"1.0\"?>";
+  cout << "<sites>";
+  cout << "<site><name>St. Andrews</name><bank><panels>4</panels>";
+  cout << "<currentpower>324</currentpower></bank>";
+  cout << "<bank><currentpower>322</currentpower></bank></site>";
+  cout << "<site><name>Kings College</name><bank><currentpower>553</currentpower></bank>";
+  cout << "</site>";
+  cout << "</sites>";
+  ```
+  As you can see, my dummy XML incudes two sites (St. Andrews and Kings College). Under St. Andrews, the XML data includes data for each of its 2 banks. From the first bank, the number of panels is included, as well as the current power from this bank. This XML format allows users to request specific types of data. For example, if someone wanted to gather all data from one site, they could do that. They could also look up a sites current power, etc. This code is shown in solarConnection.cpp.
+  
+#### Test HTML
+Instead of connecting the XML to one of my existing HTMl files, I decided to create a test HTML file to show this data. It has the same initial code (nav bar from website), but currently has nothing in the body of the HTMl file. I will include a way to view the data on the website later, but for now, the connection will be shown through the console. 
+
+#### JavaScript
+After last week, I discovered that I will not be able to recycle any of Professor Skon's current javascript code. Therefore, I striped all of the existing code. From this, my first step was to get the connection between the XML and javascrip, so I created two functions. 
+```
+function getConnection() {
+ $.ajax({
+		url: '/cgi-bin/shurbertj_solarConnection.cgi',
+		dataType: 'text xml',
+		success: getXML,
+		error: function(){alert("Error: Something went wrong");}
+    });
+    }
+
+
+$(document).ready(function(){
+	getConnection();
+    });
+```
+This code allows me to call my getConnection function when the document is first opened. Within my getConnection function, I use an ajax call to get the XML data from the solarConnection.cgi, which is set to a dataType of XML. Upon successfully opening the cgi file, it gets the XML, and if it fails then an error message occurs on the website. 
+
+
