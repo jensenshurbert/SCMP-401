@@ -683,6 +683,19 @@ $(document).ready(function(){
 	getConnection();
     });
 ```
-This code allows me to call my getConnection function when the document is first opened. Within my getConnection function, I use an ajax call to get the XML data from the solarConnection.cgi, which is set to a dataType of XML. Upon successfully opening the cgi file, it gets the XML, and if it fails then an error message occurs on the website. 
+This code allows me to call my getConnection function when the document is first opened. Within my getConnection function, I use an ajax call to get the XML data from the solarConnection.cgi, which is set to a dataType of XML. Upon successfully opening the cgi file, it calles my getMXL function (described below), and if it fails then an error message occurs on the website. 
 
+Once the solarConnection file is connected, I wrote a getXML function that retrieves information from the XML data. In this specific example, I was able to search and console.log the name of each site. In the figure, I will make the connection to where the user can ask for specific data, but for now, the code needs to be changed in the javascript in order to get specific data. 
+```
+function getXML(document) {
+    solarXML = document;
+    
+    $(solarXML).find('site').each(function(){
+	var name = $(this).find("name").text();
+	console.log(name);
+    });
+}
+```
+#### Moving Forward
+My next goal is to make the data display on my website and allow users to select which type of data they wish to see. 
 
