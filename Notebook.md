@@ -581,11 +581,121 @@ Meet with Professor Skon to discuss any other files I may need and to review cur
 #### Overview
 This week, I was able to gain access to the database, set up the current website correctly running on the CS server, and make changes to the html layout of the website.
 
-####  Putting RGraph libraries on my personal computer
-
+####  Putting Bootstrapping and RGraph libraries in my personal project file
+Last week, my main issue was that my version of the website layout wasn't registering. It appeared that the bootstrapping wasn't being applied. I met with Professor Skon and he mentioned that he was refering to a local version of his bootstrap instead of off the internet. Through FileZilla, he logged into his account and copied the Bootstrapping file into my project folder. I then could do the following line of code to apply bootstrapping to my site. 
+```
+<link rel="stylesheet" href="lib/bootstrap-datepicker.min.css">
+<script src="lib/bootstrap-datepicker.min.js"></script>
+```
+This allowed my website to have the correct style for the navigation bar, but the rest of the website material still wasn't there. This was because my website wasn't connected to the database correctly. Since the final database connection won't be applied until Kara and Matt have done some more work, I chose to connect the current database with the current PHP file in order to view the current layout. The goal with this is so I can make changes to the current website layout as it currently stands. In order to get the graphs and data visualizations on my site, I had to put the RGraphs folder that Professor Skon had on his local project file into my own. This was done with FileZilla aswell, and then I was able to use the following code. 
+```
+<script src="RGraph/libraries/RGraph.common.core.js"></script>
+<script src="RGraph/libraries/RGraph.common.dynamic.js"></script>
+<script src="RGraph/libraries/RGraph.common.tooltips.js"></script>
+<script src="RGraph/libraries/RGraph.gauge.js"></script>
+<script src="RGraph/libraries/RGraph.bar.js"></script>
+<script src="RGraph/libraries/RGraph.line.js"></script>
+<script src="RGraph/libraries/RGraph.hprogress.js"></script>
+```
+After this, my website was able to appear the same as Professor Skons, with the correct navigation bar, and each page had the same data visualizations. 
 
 #### Running a static version of the database as a localhost
-An issue that I ran into was how slow my website was since it had to fetch the data from the cs3 server everytime the website needed new or updated data. This caused my changes to the website to take an extremely long time to load in order to check. Since Kara and Matt are working on the database and analysis, at this point, the website layout isn't affected by whether the data is live or not. Therefore, Professor Skon gave me access to static version of the database that is on my local computer. This is accessed through my PHP file with the following: servername, username, password, and dbname.
+An issue that I ran into was how slow my website was since it had to fetch the data from the cs3 server everytime the website needed new or updated data. This caused my changes to the website to take an extremely long time to load in order to check. Since Kara and Matt are working on the database and analysis, at this point, the website layout isn't affected by whether the data is live or not. Therefore, Professor Skon gave me access to static version of the database that is on my local computer. This is accessed through my PHP file with the following: servername, username, password, and dbname. Here are the changes I made in the PHP file in order to access it. 
+```
+   $servername = "localhost";
+   $username = "******";
+   $password = "******";
+   $dbname = "LIM-SERV";
+```
+Now the data doesn't have to be fetched from the cs3 server, the loading time isnt as long. This allows me to check my changes to the website layout in a quicker way since everytime a user changes a page on the website, the data had to be fetched. 
 
 #### Alterations to the HTML file
-A major issue of the current website is that each page doesn't have its own html file. This means that no matter where a user is, when the user wishes to refresh the page, they are redirected back to the home summary page. 
+A major issue of the current website is that each page doesn't have its own html file. This means that no matter where a user is, when the user wishes to refresh the page, they are redirected back to the home summary page. Currently, the website is running off of one html file. My first additions were to add new html files for each page of the website. After doing that, I added the following code to my Makefile in order to be able to access the files on the CS server.
+```
+PutHTML:
+	cp Solar.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Home.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Project.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Importance.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Locations.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Graphs.html /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Solar.css /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Solarx.js /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp Solar.php /var/www/html/class/softdev/$(USER)/SolarProject/
+
+	echo "Current contents of your HTML directory: "
+	ls -l /var/www/html/class/softdev/$(USER)/SolarProject/
+```
+Now I can access any of these pages and click through them in the navigation bar. At this moment, I have blank pages for Home, Project, and Importance. The current issue is that the Graphs and Locations pages are still running from the same Solar html page. My next goal is to move the code around to where Graphs and Locations are running from their own html pages. 
+
+
+#### Connection with Tableau
+In order to connect a visualization from Tableau to my website, there are a few steps to take. The overall process is to put the visualization on Tableau Public, then get the embedded code and put it in the html code. First step is to make sure that we have a Tableau Public account, since we have an account for Tableau Desktop, this isn't an issue. This is where you can see all data visualizations that you have done and published to Tableau Public. In order to publicize the visualization, on the desktop version of Tableau, go to Server, then Public Workbook. If you get an error message, create a data extract by clicking off of live data to an extract. In order to do this, change connection to extract, edit, save as aggregate to local machine. Then try to publish workbook again. This publicizes your workbook onto Tableau Public. From here, get the embedded code from the share icon below the visualization. Copy and paste it into the correct place in the html file. 
+
+After these steps, your data visualization showed up on my website! 
+
+#### Next Steps
+1. Complete website restructuring into unique html files for each page. 
+2. Research live data connection with website for Tableau. 
+3. Start filling in Home, Our Work, and Importance pages. 
+
+# Week 6 Notebook
+### 2/26/18-3/18/18
+
+#### Overview
+This past week (including Spring Break) there was a lot that was needed to be changed about the project. For one, I figured out that Tableau could not be used for live data, which lead me to change my focus. My goal for this week was to create a C++ file that would output dummp solar XML data. I did this in order to make sure that I could understand the conneciton between my HTML&JS files with the C++ file that Kara will be making in order to allow the live solar data to reach the website. I will be walking through how I achieved this, including some decisions I made along the way. 
+
+#### JSON vs. XML
+Immediately prior to my last presentation, I decided that I would be creating the C++ file to write dummy JSON data. Professor Skon and I agreed that this would be an acceptable way to display the data. After speaking with my team at the end of the week, we decided that XML will be better since all three of us are familiar with using it, and the current data is displayed as long strings that Kara would know how to easily parse them into XML. 
+
+#### Dummy C++ File
+The first step of my goal was the create my dummy C++ file. For clarification, I refer to it as "dummy" because this will not be the file that will be used in our final project, but rather act as a placeholder since our project's C++ file is not complete. For this, I chose to include specific information in the XML for each location (site name, banks, # of panels for that bank, current power for that bank). I used the following code to achieve this.
+```
+cout << "Content-Type: text/plain\n\n";
+  cout << "<?xml version=\"1.0\"?>";
+  cout << "<sites>";
+  cout << "<site><name>St. Andrews</name><bank><panels>4</panels>";
+  cout << "<currentpower>324</currentpower></bank>";
+  cout << "<bank><currentpower>322</currentpower></bank></site>";
+  cout << "<site><name>Kings College</name><bank><currentpower>553</currentpower></bank>";
+  cout << "</site>";
+  cout << "</sites>";
+  ```
+  As you can see, my dummy XML incudes two sites (St. Andrews and Kings College). Under St. Andrews, the XML data includes data for each of its 2 banks. From the first bank, the number of panels is included, as well as the current power from this bank. This XML format allows users to request specific types of data. For example, if someone wanted to gather all data from one site, they could do that. They could also look up a sites current power, etc. This code is shown in solarConnection.cpp.
+  
+#### Test HTML
+Instead of connecting the XML to one of my existing HTMl files, I decided to create a test HTML file to show this data. It has the same initial code (nav bar from website), but currently has nothing in the body of the HTMl file. I will include a way to view the data on the website later, but for now, the connection will be shown through the console. 
+
+#### JavaScript
+After last week, I discovered that I will not be able to recycle any of Professor Skon's current javascript code. Therefore, I striped all of the existing code. From this, my first step was to get the connection between the XML and javascrip, so I created two functions. 
+```
+function getConnection() {
+ $.ajax({
+		url: '/cgi-bin/shurbertj_solarConnection.cgi',
+		dataType: 'text xml',
+		success: getXML,
+		error: function(){alert("Error: Something went wrong");}
+    });
+    }
+
+
+$(document).ready(function(){
+	getConnection();
+    });
+```
+This code allows me to call my getConnection function when the document is first opened. Within my getConnection function, I use an ajax call to get the XML data from the solarConnection.cgi, which is set to a dataType of XML. Upon successfully opening the cgi file, it calles my getMXL function (described below), and if it fails then an error message occurs on the website. 
+
+Once the solarConnection file is connected, I wrote a getXML function that retrieves information from the XML data. In this specific example, I was able to search and console.log the name of each site. In the figure, I will make the connection to where the user can ask for specific data, but for now, the code needs to be changed in the javascript in order to get specific data. 
+```
+function getXML(document) {
+    solarXML = document;
+    
+    $(solarXML).find('site').each(function(){
+	var name = $(this).find("name").text();
+	console.log(name);
+    });
+}
+```
+#### Moving Forward
+My next goal is to make the data display on my website and allow users to select which type of data they wish to see. 
+
