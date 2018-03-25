@@ -699,3 +699,137 @@ function getXML(document) {
 #### Moving Forward
 My next goal is to make the data display on my website and allow users to select which type of data they wish to see. 
 
+# Week 7 Notebook
+### 3/19/18-3/25/18
+
+#### Overview
+This was a slow week in terms of coding. I was able to meeting with Professor Skon at the beginning of the week to get access to Highcharts. A lot of research and playing around with Highcharts was done. I was also able to get access to Kara's current cpp file (only functions that are relevant to me at this point) to see how our connection will work. We are planning to meet early this week to get her code running on my computer. 
+
+#### Highcharts
+After gaining access to Highcharts, I was able to copy all Highcharts examples to my local computer and my repository in my Solar Project folder. I was also able to pick a specific example "bubble.html" and put it in my Repository. After looking at bubble.html more in depth, it appears that with Highcharts, I will be using a Highcharts javascript file as well as my own. Once I pick an example visualization that I want to use, I will start with their current html file and make alterations to make it more tailored to our data. As of right now, I am waiting to do this stage until I have connection to the live data. 
+
+For the examples I have looked at, here is the code that will allow me to connect to their java script file. 
+```
+<script src="/Highcharts/code/highcharts.js"></script>
+<script src="/Highcharts/code/highcharts-more.js"></script>
+<script src="/Highcharts/code/modules/exporting.js"></script>
+```
+Specifically, for the bubble.html example, here is how the layout works for the visualization. As you can see, the code is broken into chart, legend, title, subtitle, xAxis, yAxi, tooltip, plot options and series(data). Simple changes will be able to be made to many of these sections to tailor to my data. It appears that the connection with our data will be in the series(data) section. In this example, the data is not live, and is just written out in the html file, which will be different once our connection is live.  
+```
+Highcharts.chart('container', {
+
+    chart: {
+        type: 'bubble',
+        plotBorderWidth: 1,
+        zoomType: 'xy'
+    },
+
+    legend: {
+        enabled: false
+    },
+
+    title: {
+        text: 'Sugar and fat intake per country'
+    },
+
+    subtitle: {
+        text: 'Source: <a href="http://www.euromonitor.com/">Euromonitor</a> and <a href="https://data.oecd.org/">OECD</a>'
+    },
+
+    xAxis: {
+        gridLineWidth: 1,
+        title: {
+            text: 'Daily fat intake'
+        },
+        labels: {
+            format: '{value} gr'
+        },
+        plotLines: [{
+            color: 'black',
+            dashStyle: 'dot',
+            width: 2,
+            value: 65,
+            label: {
+                rotation: 0,
+                y: 15,
+                style: {
+                    fontStyle: 'italic'
+                },
+                text: 'Safe fat intake 65g/day'
+            },
+            zIndex: 3
+        }]
+    },
+
+    yAxis: {
+        startOnTick: false,
+        endOnTick: false,
+        title: {
+            text: 'Daily sugar intake'
+        },
+        labels: {
+            format: '{value} gr'
+        },
+        maxPadding: 0.2,
+        plotLines: [{
+            color: 'black',
+            dashStyle: 'dot',
+            width: 2,
+            value: 50,
+            label: {
+                align: 'right',
+                style: {
+                    fontStyle: 'italic'
+                },
+                text: 'Safe sugar intake 50g/day',
+                x: -10
+            },
+            zIndex: 3
+        }]
+    },
+
+    tooltip: {
+        useHTML: true,
+        headerFormat: '<table>',
+        pointFormat: '<tr><th colspan="2"><h3>{point.country}</h3></th></tr>' +
+            '<tr><th>Fat intake:</th><td>{point.x}g</td></tr>' +
+            '<tr><th>Sugar intake:</th><td>{point.y}g</td></tr>' +
+            '<tr><th>Obesity (adults):</th><td>{point.z}%</td></tr>',
+        footerFormat: '</table>',
+        followPointer: true
+    },
+
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }
+    },
+
+    series: [{
+        data: [
+            { x: 95, y: 95, z: 13.8, name: 'BE', country: 'Belgium' },
+            { x: 86.5, y: 102.9, z: 14.7, name: 'DE', country: 'Germany' },
+            { x: 80.8, y: 91.5, z: 15.8, name: 'FI', country: 'Finland' },
+            { x: 80.4, y: 102.5, z: 12, name: 'NL', country: 'Netherlands' },
+            { x: 80.3, y: 86.1, z: 11.8, name: 'SE', country: 'Sweden' },
+            { x: 78.4, y: 70.1, z: 16.6, name: 'ES', country: 'Spain' },
+            { x: 74.2, y: 68.5, z: 14.5, name: 'FR', country: 'France' },
+            { x: 73.5, y: 83.1, z: 10, name: 'NO', country: 'Norway' },
+            { x: 71, y: 93.2, z: 24.7, name: 'UK', country: 'United Kingdom' },
+            { x: 69.2, y: 57.6, z: 10.4, name: 'IT', country: 'Italy' },
+            { x: 68.6, y: 20, z: 16, name: 'RU', country: 'Russia' },
+            { x: 65.5, y: 126.4, z: 35.3, name: 'US', country: 'United States' },
+            { x: 65.4, y: 50.8, z: 28.5, name: 'HU', country: 'Hungary' },
+            { x: 63.4, y: 51.8, z: 15.4, name: 'PT', country: 'Portugal' },
+            { x: 64, y: 82.9, z: 31.3, name: 'NZ', country: 'New Zealand' }
+        ]
+    }]
+
+});
+```
+
+#### Next Steps
+Early this week, I am meeting with Kara to get her cpp file working on my computer as well as connect me to the live database. I am also meeting with Professor Skon to connect other examples to my data. This week, I also want to start inputting the background information on the Belize project. 
