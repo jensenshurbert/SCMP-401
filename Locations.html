@@ -65,15 +65,54 @@
                             <ul class="dropdown-menu" role="menu" id="sitelist">
 
                             </ul>
-                        <li ><a onclick='sitegraphsstart(1);' id="GraphButton">Graphs</a></li>
+                        <li ><a href="Graphs.html" onclick='sitegraphsstart(1);' id="GraphButton">Graphs</a></li>
 
                     </ul>
                 </div>
             </div>
         </nav>
         
-        
-        
+        <h1>LOCATIONS TEST</h1>
+              
+     <div id="Site" class="collapse">
+	  <center><h1 id="sitename"></h1><center>
+            <div class="row">
+                <div class="col-sm-3">
+                    <center><h3>Current Power</h3>
+                    <canvas id="gauge" width="350" height="250">
+		    </canvas></center>
+		    <p id="gts"></p>
+		</div>
+                <div class="col-sm-3">
+		  <h3>Stats</h3>
+		  <div id="datatable">
+		  </div>
+		</div>
+                <div class="col-sm-6">
+		  <h3>Watthours by hour for today</h3>
+                    <canvas id="hourlyGraph" width="450" height="300">
+		    </canvas></center>
+		</div>
+	    </div>
+	</div>
+	<div id="Site2" class="collapse">
+	  <center><h1 id="sitename"></h1><center>
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <center>
+		    <h3>KWh/day for last week</h3>
+                    <canvas id="weekgraph" width="450" height="250">
+                    </canvas></center>
+                </div>
+
+                <div class="col-sm-6">
+                    <center>
+                    <canvas id="ytdgraph" width="450" height="250">
+                    </canvas></center>
+                </div>
+	    </div> 
+	</div>
         
         
         

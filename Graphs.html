@@ -65,15 +65,98 @@
                             <ul class="dropdown-menu" role="menu" id="sitelist">
 
                             </ul>
-                        <li ><a onclick='sitegraphsstart(1);' id="GraphButton">Graphs</a></li>
-
+                        <li ><a href="Graphs.html" onclick='sitegraphsstart(1);' id="GraphButton">Graphs</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         
+        <h1>GRAPHS TEST</h1>
         
-        
+        <div class="modal fade" id="pickdate" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Pick Date for Graphs</h4>
+      </div>
+      <div class="modal-body">
+        <div id="datepickergraph">
+	  </div>
+      </div>
+      <div class="modal-footer">
+	<button type="button" class="btn btn-default" onclick="graphsetdate();" data-dismiss="modal">Select</button>
+      </div>
+    </div>
+  </div>
+</div>
+                
+         <div class="container">
+	    <div id="minuteGraphs" class="collapse">
+	    <div id="graphDate"><center></div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg1" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow1"></p>
+		</div>
+            <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg2" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow2"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg3" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow3"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg4" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow4"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg5" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow5"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg6" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow6"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg7" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow7"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg8" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow8"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg9" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow9"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg10" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow10"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg11" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow11"></p>
+		</div>
+                <div class="col-sm-4">
+                    <center>
+                    <canvas id="lg12" width="350" height="230">
+		    </canvas></center> <p class="small" id="pow12"></p>
+		</div>
+            </div>
+        </div>
         
         
         
