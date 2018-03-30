@@ -4,7 +4,6 @@ var sym;
 var num;
 var wgt;
 var matchToFind;
-//var operation="12hours";
 var operation="now";
 
 var dataList = [];
