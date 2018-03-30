@@ -833,3 +833,78 @@ Highcharts.chart('container', {
 
 #### Next Steps
 Early this week, I am meeting with Kara to get her cpp file working on my computer as well as connect me to the live database. I am also meeting with Professor Skon to connect other examples to my data. This week, I also want to start inputting the background information on the Belize project. 
+
+
+# Week 8 Notebook
+### 3/26/18-4/1/18
+
+#### Overview
+This week I have met with Professor Skon and Kara to discuss movement forward. After speaking with Kara, I was able to format my dummy cpp file into the same XML format we will be using. I created functions within my dummy cpp file for the latest and lastWeek functions (although the last week is formatted as a 12 hour summary right now). Kara will be making a fourth function for the 12 hour data, but it is formatted the same as the lastWeek. 
+
+#### XML Format 
+As of right now, each C++ function has a slightly different XML format. I currently have the latest function data formatted like this within a getNow function. 
+```
+void getNow(){
+    cout << "<?xml version=\"1.0\"?>";
+  cout << "<sites>";
+  cout << "<site><name>St. Andrews</name><maxWatts>12</maxWatts><numBanks>2</numBanks>";
+  cout << "<bank><mostrecent>2009-10-20 01:00:00.0</mostrecent><wattsorvolts>Watts</wattsorvolts></bank>";
+  cout << "<bank><mostrecent>2009-10-20 02:00:00.0</mostrecent><wattsorvolts>Volts</wattsorvolts></bank>";
+  cout << "</site>";
+  cout << "<site><name>Kings College</name><maxWatts>14</maxWatts><numBanks>2</numBanks>";
+  cout << "<bank><mostrecent>2009-10-20 03:00:00.0</mostrecent><wattsorvolts>Watts</wattsorvolts></bank>";
+  cout << "<bank><mostrecent>2009-10-20 04:00:00.0</mostrecent><wattsorvolts>Volts</wattsorvolts></bank>";
+  cout << "</site>";
+  cout << "<site><name>Log Cabins</name><maxWatts>4</maxWatts><numBanks>1</numBanks>";
+  cout << "<bank><mostrecent>2009-10-20 03:00:00.0</mostrecent><wattsorvolts>Watts</wattsorvolts></bank>";
+  cout << "</site>";
+  cout << "</sites>";}
+```
+I also have a get12Hours function that has the XML data for the last 12 hours. This formatting is not done yet as I have to meet with Kara again to clarify something. It should have a similar layout, but just have more times available. 
+
+#### Highcharts
+So far, I have created a bar chart to display the current power for all locations. This was done by first choosing a demo highcharts example. If you edit the code in Jfiddle, you can have access to their html and js code. First step is to copy and paste that code into your own files. At this point, you should have their exact data visualization running on your own html file. An important thing to realize is that they are currently manually inputting their data in the js file, but our data is coming from a cpp file. Because of this, I used the following code in my js file to get the xml code from my cpp file and format it correctly. Note that makeChart() is the function that creates the data visualization.
+```
+function getXML(document) {
+    solarXML = document;
+        
+    var siteInfo = [];    
+    $(solarXML).find('site').each(function(){
+	var name = $(this).find("name").text();
+	var watts = $(this).find("maxWatts").text();
+	siteInfo.push(name);
+	siteInfo.push(parseInt(watts));
+	dataList.push(siteInfo);
+	siteInfo = [];
+	//console.log(name + watts);
+	
+    });
+    //dataList = [['w',34], ['r',56]];
+    console.log(dataList);
+    makeChart();
+}
+```
+Within makeChart(), this we then can apply our dataList array to our visualization with the following code.
+```
+series: [{
+        name: 'Population',
+        data: dataList,
+
+        dataLabels: {
+            enabled: true,
+            rotation: -90,
+            color: '#FFFFFF',
+            align: 'right',
+            format: '{point.y:.1f}', // one decimal
+            y: 10, // 10 pixels down from the top
+            style: {
+                fontSize: '13px',
+                fontFamily: 'Verdana, sans-serif'
+            }
+        }
+    }]
+```
+It is important to see that the only changes that were made were getting rid of their manually inputed data, and replace it with our dataList array that is formatted the same way. 
+
+#### Moving Forward
+I will complete the above steps in the same way for the other functions and choose the best Highcharts visualizations for each. I will also decide which visualizations will need users to press buttons for certain data to appear. Once Kara finalizes her cpp code, we will work together to get her code running on my computer so I can have access to the actual data. 
