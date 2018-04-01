@@ -59,10 +59,7 @@ Highcharts.chart('container', {
         type: 'column'
     },
     title: {
-        text: 'World\'s largest cities per 2017'
-    },
-    subtitle: {
-        text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+        text: 'Current Solar Panel Energy'
     },
     xAxis: {
         type: 'category',
@@ -77,14 +74,14 @@ Highcharts.chart('container', {
     yAxis: {
         min: 0,
         title: {
-            text: 'Population (millions)'
+            text: 'Energy (Watts/Volts)'
         }
     },
     legend: {
         enabled: false
     },
     tooltip: {
-        pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+        pointFormat: 'Current Energy: <b>{point.y:.1f} watts/votls</b>'
     },
     series: [{
         name: 'Population',

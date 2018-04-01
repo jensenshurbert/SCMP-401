@@ -38,6 +38,8 @@ PutHTML:
 	cp Graphs.html /var/www/html/class/softdev/$(USER)/SolarProject/
 	cp Solar.css /var/www/html/class/softdev/$(USER)/SolarProject/
 	cp Solarx.js /var/www/html/class/softdev/$(USER)/SolarProject/
+	cp SolarSummary.js /var/www/html/class/softdev/$(USER)/SolarProject/
+
 	cp Solar.php /var/www/html/class/softdev/$(USER)/SolarProject/
 
 	echo "Current contents of your HTML directory: "
