@@ -24,6 +24,7 @@ using namespace std;
 using namespace cgicc; // Needed for AJAX functions.
 void get12Hours();
 void getNow();
+void getBankSum();
 
 
 int main() {
@@ -64,25 +65,25 @@ return 0;
   cout << "<hour>6</hour><wattsorvolts>17</wattsorvolts>";
   cout << "<hour>7</hour><wattsorvolts>18</wattsorvolts>";
   cout << "<hour>8</hour><wattsorvolts>15</wattsorvolts>";
-  cout << "<hour>9</hour><wattsorvolts>11</wattsorvolts>";
+  cout << "<hour>9</hour><wattsorvolts>33</wattsorvolts>";
   cout << "<hour>10</hour><wattsorvolts>8</wattsorvolts>";
   cout << "<hour>11</hour><wattsorvolts>4</wattsorvolts>";
   cout << "<hour>12</hour><wattsorvolts>3</wattsorvolts>";
   cout << "</bank>";
-  cout << "<bank>";
-  cout << "<hour>1</hour><wattsorvolts>0</wattsorvolts>";
-  cout << "<hour>2</hour><wattsorvolts>4</wattsorvolts>";
-  cout << "<hour>3</hour><wattsorvolts>6</wattsorvolts>";
-  cout << "<hour>4</hour><wattsorvolts>10</wattsorvolts>";
-  cout << "<hour>5</hour><wattsorvolts>12</wattsorvolts>";
-  cout << "<hour>6</hour><wattsorvolts>20</wattsorvolts>";
-  cout << "<hour>7</hour><wattsorvolts>18</wattsorvolts>";
-  cout << "<hour>8</hour><wattsorvolts>15</wattsorvolts>";
-  cout << "<hour>9</hour><wattsorvolts>11</wattsorvolts>";
-  cout << "<hour>10</hour><wattsorvolts>8</wattsorvolts>";
-  cout << "<hour>11</hour><wattsorvolts>2</wattsorvolts>";
-  cout << "<hour>12</hour><wattsorvolts>0</wattsorvolts>";
-  cout << "</bank>";
+//   cout << "<bank>";
+//   cout << "<hour>1</hour><wattsorvolts>0</wattsorvolts>";
+//   cout << "<hour>2</hour><wattsorvolts>4</wattsorvolts>";
+//   cout << "<hour>3</hour><wattsorvolts>6</wattsorvolts>";
+//   cout << "<hour>4</hour><wattsorvolts>10</wattsorvolts>";
+//   cout << "<hour>5</hour><wattsorvolts>12</wattsorvolts>";
+//   cout << "<hour>6</hour><wattsorvolts>20</wattsorvolts>";
+//   cout << "<hour>7</hour><wattsorvolts>18</wattsorvolts>";
+//   cout << "<hour>8</hour><wattsorvolts>15</wattsorvolts>";
+//   cout << "<hour>9</hour><wattsorvolts>11</wattsorvolts>";
+//   cout << "<hour>10</hour><wattsorvolts>8</wattsorvolts>";
+//   cout << "<hour>11</hour><wattsorvolts>2</wattsorvolts>";
+//   cout << "<hour>12</hour><wattsorvolts>0</wattsorvolts>";
+//   cout << "</bank>";
   cout << "</site>";
   cout << "<site><name>Kings College</name><maxWatts>14</maxWatts><numBanks>1</numBanks>";
   cout << "<bank>";
@@ -92,8 +93,8 @@ return 0;
   cout << "<hour>4</hour><wattsorvolts>4</wattsorvolts>";
   cout << "<hour>5</hour><wattsorvolts>6</wattsorvolts>";
   cout << "<hour>6</hour><wattsorvolts>9</wattsorvolts>";
-  cout << "<hour>7</hour><wattsorvolts>11</wattsorvolts>";
-  cout << "<hour>8</hour><wattsorvolts>14</wattsorvolts>";
+  cout << "<hour>7</hour><wattsorvolts>0</wattsorvolts>";
+  cout << "<hour>8</hour><wattsorvolts>0</wattsorvolts>";
   cout << "<hour>9</hour><wattsorvolts>8</wattsorvolts>";
   cout << "<hour>10</hour><wattsorvolts>2</wattsorvolts>";
   cout << "<hour>11</hour><wattsorvolts>1</wattsorvolts>";
@@ -101,6 +102,11 @@ return 0;
   cout << "</bank>";  
   cout << "</site>";
   cout << "</sites>";}
+  
+  void getBankSum(){
+  	
+  
+  }
   
   void getNow(){
     cout << "<?xml version=\"1.0\"?>";
