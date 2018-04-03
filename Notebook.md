@@ -884,7 +884,7 @@ function getXML(document) {
     makeChart();
 }
 ```
-Within makeChart(), this we then can apply our dataList array to our visualization with the following code.
+Within makeChart(), this we then can apply our dataList array to our visualization with the following code. 
 ```
 series: [{
         name: 'Population',
@@ -904,7 +904,10 @@ series: [{
         }
     }]
 ```
-It is important to see that the only changes that were made were getting rid of their manually inputed data, and replace it with our dataList array that is formatted the same way. 
+It is important to see that the only changes that were made were getting rid of their manually inputed data, and replace it with our dataList array that is formatted the same way. The format is arrays within a larger array.
+
+#### Changing Website Layout
+Now that I have a Summary data visualization, I want to put that on my Home page along with a short description of the project. Because of this, I decided to update the layout of the website to the following pages: Home, Our Work, Importance, Current, Last Week and History. As of right now, I plan to include data visualizations on the Home, Current, Last Week and History pages. I might add another to Importance if our group decides to include data on the cost payoff. 
 
 #### Moving Forward
 I will complete the above steps in the same way for the other functions and choose the best Highcharts visualizations for each. I will also decide which visualizations will need users to press buttons for certain data to appear. Once Kara finalizes her cpp code, we will work together to get her code running on my computer so I can have access to the actual data. 
