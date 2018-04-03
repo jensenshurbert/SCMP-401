@@ -32,3 +32,23 @@ As you can see, I am at a part in my project where I have to take a different pa
 
 3. Moving Forward
 My mindset needs to change a little bit from figuring out the data visualizations to understanding and setting up the code behind fetching the data when a user requests some data. Once I complete this, I will be able to use a data visualization tool (Highcharts?) in order to connect the data to the website's html pages. 
+
+
+# Reflection 3
+#### Week 8 Presentation
+
+Although there wasn't a lot to show in terms of progress in this presenation, I felt like I made significant strides since my last presentation. I was nervous that my setback would cause a lot more problems than it did, but in the past few weeks, I was able to plan figure out how I will be able to complete this project with the allotted time. After figuring out how to connect my JavaScript files with the data from the C++ file, this allowed me to complete two major data visualizations for my project. Moving forward, I need to complete the additional data visualizations, get them working with Kara's C++ code and fill in the extra informational pages on the website. 
+
+Through the past few weeks, I did gain a lot of skills in the process, especially when trying to recover from the setback. 
+
+1. Communication with Group
+Although this still needs to be improved greatly, in the past few weeks I connected more with my group members and integrated some of their work into my own. This is definitely a step that made me feel more solidified in what I was doing. Since we are coming to the point where our individual work needs to be knit together, the upcoming weeks will need to include more meetings and interaction between us all. 
+
+2. HighCharts code manipulations
+One thing that I am proud of from the past few weeks is that I feel very confident in my ability to alter the HighCharts demos into something that is helpful for me to use. I feel like this allowed me to regain my confidence in this project, which was decreased a little after my troubles with Tableau. 
+
+3. Time management
+After the past few weeks, it has become very obvious that the amount of work that I put into this project needs to be more steady. I found myself taking some weeks off and working a great amount other weeks, which made some weeks more stressful than they needed to be. From this point on, I have made it a plan to complete certain sections each week to keep myself accountable. 
+
+4. Moving forward 
+I need to make sure that I keep motivated in my project so that I don't fall behind at the end of the semester. I have found that I enjoy this project more when I don't feel a major time crunch. 
