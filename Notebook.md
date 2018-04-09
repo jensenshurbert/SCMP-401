@@ -911,3 +911,27 @@ Now that I have a Summary data visualization, I want to put that on my Home page
 
 #### Moving Forward
 I will complete the above steps in the same way for the other functions and choose the best Highcharts visualizations for each. I will also decide which visualizations will need users to press buttons for certain data to appear. Once Kara finalizes her cpp code, we will work together to get her code running on my computer so I can have access to the actual data. 
+
+
+# Week 8 Notebook
+### 4/2/18-4/8/18
+
+#### Overview
+This week I was able to fill in alot of the extra information on the website other than the data visualizations. This includes gathering the information which I wanted to include in the Home, Our Work and Importance pages (pictures from students who went on the trip in the past, articles they've written, etc). I also spoke with Kara and will be meeting with her early this week to get her code working on my computer. 
+
+#### Inputting Pictures 
+My first task was to include photos into the website. A lot of my photos were given to me in a google drive format. From there I was able to download them onto my computer and keep them in the downloads folder. Including photos are fairly easy once they are in the correct place. After looking at other examples, I knew that I had to move the photo out of my downloads folder and into the SolarProject directory. This is achieved by inputting the following code into the terminal once you've changed the directories to get to where the photo is currently placed. 
+```
+mv IMG_5475.jpg ~/SolarProject 
+```
+Once the photo is in the projects directory, the photo can be included in the website with the following code in the correct html files. 
+```
+<img alt="IMG_5475.jpg" height="150" src="SolarProject/solarPics/IMG_4373.JPG" width="200" />
+```
+As of right now, I have included images that I currently plan to have on each page. I have placed each one it its own div so arrangement of my page will be easier once I include bootstrapping into the webpage. 
+
+#### Layout
+I have also planned out the approximate layouts of each page on graph paper. I began implementing this in the code first by including basic information and placing seperate objects in seperate divs. I am wanting each page to at least include a similar theme or layout if possible so there is a similar feeling to the whole website. There isn't a step-by-step guide as to how I did this, so I will not be including it in my notebook, but rather in the code from the project once I get to a solid enough status to push my code. 
+
+#### Moving Forward
+As I continue to add additional information into the website, the biggest next step is merging my code with Kara's to get my visualizations working with the live data in a way the final result will. 
