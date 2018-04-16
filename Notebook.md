@@ -935,3 +935,20 @@ I have also planned out the approximate layouts of each page on graph paper. I b
 
 #### Moving Forward
 As I continue to add additional information into the website, the biggest next step is merging my code with Kara's to get my visualizations working with the live data in a way the final result will. 
+
+# Week 9 Notebook
+### 4/9/18-4/15/18
+
+#### Overview
+This week I got access to Kara's cpp and h files. I have been working on integrating them into my current data visualizations, which proved to be a little more complicated than I predicted. I also chose additional HighCharts visualizations for our cost analysis, Last week, and the history visualizations. I encorporated these demos into the relevant pages, but am waiting to get them working with actual data until I get the connection with the database working. 
+
+#### HighCharts
+
+
+#### Files added from Kara
+
+
+#### Transitioning from Dummy XML to sites.cpp and site.cpp
+
+
+#### Moving Forward
