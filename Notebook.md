@@ -943,12 +943,27 @@ As I continue to add additional information into the website, the biggest next s
 This week I got access to Kara's cpp and h files. I have been working on integrating them into my current data visualizations, which proved to be a little more complicated than I predicted. I also chose additional HighCharts visualizations for our cost analysis, Last week, and the history visualizations. I encorporated these demos into the relevant pages, but am waiting to get them working with actual data until I get the connection with the database working. 
 
 #### HighCharts
-
+Before speaking with Matt, I decided to add the fixe placement columns HighCharts demo to my Importance page. As of right now, it just outputs the demo with their code which was hard-coded since I do not have the connection with the database finalized. I also decided that I will be using similar visualizations to my last 12 hours for qByID.
 
 #### Files added from Kara
-
+From Kara, I now can work with the following files which she created: sites.cpp, sites.h, site.cpp, site.h. She also gave access to her test cpp file which I didn't use and used my own instead, but took aspects of it. 
 
 #### Transitioning from Dummy XML to sites.cpp and site.cpp
-
+I have completed this step for the current data visualization. Instead of calling my getnow function, I call her functions and create my own xml format as shown below. 
+```
+  if (Op == "now"){
+  //getNow();
+  string currentXMLString;
+  currentXMLString = "<sites>";
+  
+  for (int i=0; i < testsites.numSites() - 1; i++){
+  	currentXMLString += testsites.latest(i,"qWattsMin1");
+  }
+  currentXMLString += "</sites>";
+  cout << currentXMLString << endl;  
+  }
+  ```
+  Since my js was already created to take in xml in this format, my visualization was automatically updated with live data. Professor Skon and I did encounter a slight problem though. This process takes a very long time on the cs server and we may have to find another way to do this. This visualization can be seen on the Current page on the website. 
 
 #### Moving Forward
+I will meet with Kara and Professor Skon to discuss the speed of the cs server and which functions I still need her to write for me. I also want to meet with Matt to talk about how he wishes his cost analysis will appear on the website. In addition, I need to repeat the above steps for all other visualizations to connect them to the live database. 
