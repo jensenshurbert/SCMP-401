@@ -1843,4 +1843,42 @@ This week, I wanted to make some significant progress in the overall look of the
 This webiste has alot of html templates for anyone to download and use. After looking through some, I knew I wanted to keep it simple and go with Symplestyle Banner. I was able to put this template on each page of the current website, with the Home page being slightly different. Using this template will allow me to focus more time on the visualizations which was the bulk of my project to begin with. I still need to add additional information to some of the more informational pages. 
 
 #### Moving forward
-Now that I got the edits on Kara's LastWeek function, I can make improvements on the last week visualization. I will also add the additional information to the Home, Our Work and Importance pages. Also, after speaking with Kara, I don't think I will have time to create data visualizations for the qByID function. Previously, I spoke with Professor Skon about including a page where students could get access to the raw data, and I think that I will use the last page as a source of data for the students instead of creating a data visualization. 
+Now that I got the edits on Kara's LastWeek function, I can make improvements on the last week visualization. I will also add the additional information to the Home, Our Work and Importance pages. Also, after speaking with Kara, I don't think I will have time to create data visualizations for the qByID function. Previously, I spoke with Professor Skon about including a page where students could get access to the raw data, and I think that I will use the last page as a source of data for the students instead of creating a data visualization.
+
+
+# Week 11 Notebook
+### 4/23/18-4/29/18
+
+#### Overview
+This week I was able to make significant progress on data visualizations. I did notice that keeping the live connection with the database caused debugging to take too long, therefore, for the Home and Last Week Pages, I took snapshots of data from a couple of sites and used those to create the visualizations. 
+
+#### Types of Highcharts Visualizations
+For the Home page, I decided to keep the basic line chart, creating a different line for each bank. This way, there is a way for the user to view the differences between the two banks instead of summing them. 
+
+For the Current page, I decided to make a basic bar chart where I summed the amount of watts in each bank to get the total amount of current wattage. Moving forward, I might seperate this into a stacked bar chart. 
+
+For the Last Week page, I created a stacked bar chart for each site. At first I wanted to sum the wattage for each hour, but I decided against it because the XML format wasn't done in a way for that to be as easy as other summations I did. 
+
+#### Creating HTML in JavaScript
+For the Last week page, I have as many visualizations as I do sites. Because of this, I needed to make sure that the database controls how many visualizations are created, therefore, I created the html slightly differently than the others. For example, the current visualization has a div within the html which the visualization is pushed to. 
+```
+        <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+```
+The idea behind the Last Week page would be to have 13 of these generated (one for each live site). I was able to achieve this through my JavaScript. 
+
+First I created the function below. 
+```
+function makeContainer(container){
+	return ("<div id="+container+" style='min-width: 310px; height: 400px; margin: 0 auto'></div>");
+}
+``` 
+This is called in a loop so that each time a new site is gone through, a new div is created. 
+
+I also changed my makeChartSummary function to pass in three different variables. 
+```
+function makeChartSummary(container, siteArray, dataListSum)
+```
+Each div has a container number correlating to it (ex. container3), is built a siteArray (which is the name of the site), and a dataListSum (which is the XML formatted in a way that HighCharts will then push to a visualization). 
+
+#### Moving Forward
+Now that I have the visualizations working, I need to reconnect the website to the live data. I also plan to use the History page as a way for students to attain raw data, so I need to meet with Professor Skon about the best way to do this. Other than that, I will either leave the rest of the website to Professor Skon to fill in with information he wants people to see, or I will gather information from his other websites and include them in mine. 
