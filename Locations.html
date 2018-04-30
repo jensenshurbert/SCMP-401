@@ -1,128 +1,111 @@
-
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <meta http-equiv="refresh" content="3000" >
+
 <html>
-    <head>
-        <meta charset="UTF-8">
-            <title>Belize Solar Summary</title>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-                <script src="RGraph/libraries/RGraph.common.core.js"></script>
-		<script src="RGraph/libraries/RGraph.common.dynamic.js"></script>
-		<script src="RGraph/libraries/RGraph.common.tooltips.js"></script>
-                <script src="RGraph/libraries/RGraph.gauge.js"></script>
-		<script src="RGraph/libraries/RGraph.bar.js"></script>
-		<script src="RGraph/libraries/RGraph.line.js"></script>
-		<script src="RGraph/libraries/RGraph.hprogress.js"></script>
+
+<head>
+  <title>Belize Solar Project</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 		<link rel="stylesheet" href="lib/bootstrap-datepicker.min.css">
 		<script src="lib/bootstrap-datepicker.min.js"></script>
 		
-                <style>
-                    table {
-                        border: 1px solid #e0e0e0;
-                        border-collapse: collapse;
-                    }
-                    body {
-                        margin-top: 60px;
-                        margin-bottom: 40px;
-                    }
-                    footer {
-                        bottom:0;
-                        width:100%;
-                        height:40px;   /* Height of the footer */
-                        background:#F5F5F5;
-                    }
-		    .dropdown-menu > li:hover {
-		    background-color: lightgreen;
-		    background-image: none;
-		    }
-		    p.small {
-		    line-height: 60%;
-		    }
-                </style>
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid" id="navBar">
-                <div class="navbar-header" id="header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBarCollapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand">Belize Solar Project</a>
-                </div>
-                <div class="collapse navbar-collapse" id="navBarCollapse">
-                    <ul class="nav navbar-nav">
-                    	<li> <a href="Home.html">Home</a></li>
-                    	<li> <a href="Project.html">Our Work</a></li>
-                    	<li> <a href="Importance.html">Importance</a></li>
-                    	<li> <a href="test.html">Current Data</a></li>
-                    	<li class="active"> <a href="Locations.html">Last Week</a></li>
-                    	<li> <a href="Graphs.html">History</a></li>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
+  
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="Home.html">Belize<span class="logo_colour">Solar Project</span></a></h1>
+          <h2>Kenyon College</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Project.html">Our Work</a></li>
+          <li><a href="Importance.html">Importance</a></li>
+          <li><a href="Solar.html">Current Data</a></li>
+          <li class="selected"><a href="Locations.html">Last Week</a></li>
+        	<li><a href="Graphs.html">History</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+<!-- 
+      <div id="banner"></div>
+ -->
+	  <div id="sidebar_container">
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here -->
+            <h3>Latest News</h3>
+            <h4>New Sites Added</h4>
+            <h5>Spring Break 2018</h5>
+            <p>Here you can see the new sites that were added. <br /><a href="#">Read more</a></p>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Useful Links</h3>
+            <ul>
+              <li><a href="#">link 300</a></li>
+              <li><a href="#">link 2</a></li>
+              <li><a href="#">link 3</a></li>
+              <li><a href="#">link 4</a></li>
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
         <div>
         <h1>LAST WEEKS DATA</h1>
         <p>User can choose which site to look at</p>
         	<p>Possible explanations of why the data looks like that</p>
         	<p>Might need multiple graphs... One per day?</p>
         </div>
-              
-     <div id="Site" class="collapse">
-	  <center><h1 id="sitename"></h1><center>
-            <div class="row">
-                <div class="col-sm-3">
-                    <center><h3>Current Power</h3>
-                    <canvas id="gauge" width="350" height="250">
-		    </canvas></center>
-		    <p id="gts"></p>
-		</div>
-                <div class="col-sm-3">
-		  <h3>Stats</h3>
-		  <div id="datatable">
-		  </div>
-		</div>
-                <div class="col-sm-6">
-		  <h3>Watthours by hour for today</h3>
-                    <canvas id="hourlyGraph" width="450" height="300">
-		    </canvas></center>
-		</div>
-	    </div>
-	</div>
-	<div id="Site2" class="collapse">
-	  <center><h1 id="sitename"></h1><center>
-            <div class="row">
+      
+      <div id="weekContainers"></div>  
+      
+<!-- 
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>        
+ -->
+        
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="Home.html">Home</a> | <a href="Project.html">Our Work</a> | <a href="Importance.html">Importance</a> | <a href="Solar.html">Current Data</a> | <a href="Locations.html">Last Week</a> | <a href="Graphs.html">History</a></p>
+      <p>Copyright &copy; simplestyle_banner | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">HTML5 Web Templates</a></p>
+    </div>
+  </div>
+  
+<script src="SolarWeek.js"></script>
 
-                <div class="col-sm-6">
-                    <center>
-		    <h3>KWh/day for last week</h3>
-                    <canvas id="weekgraph" width="450" height="250">
-                    </canvas></center>
-                </div>
-
-                <div class="col-sm-6">
-                    <center>
-                    <canvas id="ytdgraph" width="450" height="250">
-                    </canvas></center>
-                </div>
-	    </div> 
-	</div>
-        
-        
-        
-        
-        
-        <footer class="footer navbar-fixed-bottom">
-            <div class="container-fluid text-left">
-                <p>version 1.0 <br> Powered by Expert Learning Systems, Ltd. © 2016</p>
-            </div>
-        </footer>
-        <script src="Solarx.js"></script>
-    </body>
+  
+</body>
 </html>
+
