@@ -16,10 +16,10 @@
 #ifndef sites_H
 #define sites_H
 
-#define HOST "cs3.kenyon.edu" //taken out for security reasons
-#define USER "braunk" //taken out for security reasons
-#define DB "LIM-SERV" //taken out for security reasons
-#define PASS "S214486" //taken out for security reasons
+#define HOST "***" //taken out for security reasons
+#define USER "***" //taken out for security reasons
+#define DB "***" //taken out for security reasons
+#define PASS "***" //taken out for security reasons
 
 using namespace std;
 
