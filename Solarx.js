@@ -1,14 +1,14 @@
 var solarXML;
-var numberofelements=0;
-var sym;
-var num;
-var wgt;
-var matchToFind;
+// var numberofelements=0;
+// var sym;
+// var num;
+// var wgt;
+// var matchToFind;
+var totalwatts = 0;
+
 var operation="now";
 
 var dataList = [];
-
-//console.log("Ready!");
 
 
 //called at the beginning to get the XML document and load the dropdown list
@@ -18,23 +18,21 @@ function getXML(document) {
     var siteInfo = [];    
     $(solarXML).find('site').each(function(){
 	var name = $(this).find("name").text();
-	var watts = $(this).find("maxWatts").text();
+	$(this).find("bank").each(function(){
+	var watts = $(this).find("qWattsMin1").text();
+	totalwatts += parseInt(watts);
+	});
 	siteInfo.push(name);
-	siteInfo.push(parseInt(watts));
+	siteInfo.push(parseInt(totalwatts));
+	totalwatts = 0;
 	dataList.push(siteInfo);
 	siteInfo = [];
-	//console.log(name + watts);
 	
     });
-    //dataList = [['w',34], ['r',56]];
     console.log(dataList);
     makeChart();
 }
 
-//in other javascript we need to have an array with an object for it - look at W3 Schools example, add an empty array around it bc that is just the inside
-//create another html and js file for summary page 
-//make sure to add it to the Makefile and change reference at bottom of html to get to the correct js
-//first need to change cpp XML structure for 12 hour summary 
 	       
 		    					  
 function getConnection() {
@@ -48,8 +46,18 @@ function getConnection() {
 
 
 $(document).ready(function(){
+
+ 	$(document).ajaxStart(function () {
+	$("#loading").show();
+    }).ajaxStop(function () {
+	$("#loading").hide();
+    });
+
 	getConnection();
  	//initial things
+ 	
+
+ 	
     });
 
 
@@ -84,7 +92,7 @@ Highcharts.chart('container', {
         pointFormat: 'Current Energy: <b>{point.y:.1f} watts/votls</b>'
     },
     series: [{
-        name: 'Population',
+        name: 'Watts',
         data: dataList,
 
         dataLabels: {

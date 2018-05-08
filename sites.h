@@ -16,10 +16,10 @@
 #ifndef sites_H
 #define sites_H
 
-#define HOST "***" //taken out for security reasons
-#define USER "***" //taken out for security reasons
-#define DB "***" //taken out for security reasons
-#define PASS "***" //taken out for security reasons
+#define HOST "cs3.kenyon.edu" //taken out for security reasons
+#define USER "braunk" //taken out for security reasons
+#define DB "LIM-SERV" //taken out for security reasons
+#define PASS "S214486" //taken out for security reasons
 
 using namespace std;
 
@@ -31,6 +31,7 @@ class sites{
   string qByID(int site, string wattsOrVolts, string timestamp1, string timestamp2);
   string lastWeek(int site, string wattsOrVolts);
   string latest(int site, string wattsOrVolts);
+  string yesterday(int site, string wattsOrVolts);
   int numSites();
   //for all sites
   string latestForAll(string wattsOrVolts);

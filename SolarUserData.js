@@ -1,5 +1,7 @@
 var solarXML;
-var operation="user";
+
+//this is commented out because there is currently no connection to database
+//var operation="user";
 
 
 //called at the beginning to get the XML document and load the dropdown list

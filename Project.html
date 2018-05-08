@@ -1,92 +1,110 @@
-
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <meta http-equiv="refresh" content="3000" >
+
 <html>
-    <head>
-        <meta charset="UTF-8">
-            <title>Belize Solar Summary</title>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-                <script src="RGraph/libraries/RGraph.common.core.js"></script>
-		<script src="RGraph/libraries/RGraph.common.dynamic.js"></script>
-		<script src="RGraph/libraries/RGraph.common.tooltips.js"></script>
-                <script src="RGraph/libraries/RGraph.gauge.js"></script>
-		<script src="RGraph/libraries/RGraph.bar.js"></script>
-		<script src="RGraph/libraries/RGraph.line.js"></script>
-		<script src="RGraph/libraries/RGraph.hprogress.js"></script>
+
+<head>
+  <title>Belize Solar Project</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 		<link rel="stylesheet" href="lib/bootstrap-datepicker.min.css">
 		<script src="lib/bootstrap-datepicker.min.js"></script>
-		
-                <style>
-                    table {
-                        border: 1px solid #e0e0e0;
-                        border-collapse: collapse;
-                    }
-                    body {
-                        margin-top: 60px;
-                        margin-bottom: 40px;
-                    }
-                    footer {
-                        bottom:0;
-                        width:100%;
-                        height:40px;   /* Height of the footer */
-                        background:#F5F5F5;
-                    }
-		    .dropdown-menu > li:hover {
-		    background-color: lightgreen;
-		    background-image: none;
-		    }
-		    p.small {
-		    line-height: 60%;
-		    }
-                </style>
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid" id="navBar">
-                <div class="navbar-header" id="header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBarCollapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand">Belize Solar Project</a>
-                </div>
-                <div class="collapse navbar-collapse" id="navBarCollapse">
-                    <ul class="nav navbar-nav">
-                    	<li> <a href="Home.html">Home</a></li>
-                    	<li class="active"> <a href="Project.html">Our Work</a></li>
-                    	<li> <a href="Importance.html">Importance</a></li>
-                    	<li> <a href="test.html">Current Data</a></li>
-                    	<li> <a href="Locations.html">Last Week</a></li>
-                    	<li> <a href="Graphs.html">History</a></li>
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        
+  
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="Home.html">Belize<span class="logo_colour">Solar Project</span></a></h1>
+          <h2>Kenyon College</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="Home.html">Home</a></li>
+          <li class="selected"><a href="Project.html">Our Work</a></li>
+          <li><a href="Importance.html">Importance</a></li>
+          <li><a href="Solar.html">Current Data</a></li>
+          <li><a href="Locations.html">Last Week</a></li>
+        	<li><a href="Graphs.html">History</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+
+	  <div id="sidebar_container">
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <!-- insert your sidebar items here -->
+            <h3>Latest News</h3>
+            <h4>New Sites Added</h4>
+            <h5>Spring Break 2018</h5>
+            <p>Here you can see the new sites that were added. <br /><a href="#">Read more</a></p>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar_top"></div>
+          <div class="sidebar_item">
+            <h3>Relevant Links & Articles</h3>
+            <ul>
+              <li><a href="https://www.sanpedrosun.com/environment/2018/01/18/kenyon-college-install-solar-panels-schools-ambergris-caye/">San Pedro Sun 2018</a></li>
+              <li><a href="https://www.sanpedrosun.com/community-and-society/2017/03/25/kenyon-college-installs-solar-panels-aces-brighter-tomorrow-preschool/">San Pedro Sun 2017</a></li>
+              <li><a href="https://www.ambergristoday.com/news/2018/01/17/more-schools-ambergris-caye-receive-solar-panels-kenyon-college">Ambergris Today</a></li>
+              <li><a href="http://mountvernonnews.com/article/2018/03/30/kenyon-students-electrifying-presence-in-belize/">Mount Vernon News</a></li>
+            	<li><a href="https://medium.com/@kelleyai/solar-panels-computer-labs-and-more-how-students-can-take-kenyon-values-off-the-hill-and-into-12591db62731">Medium</a></li>
+            	<li><a href="https://montclairdispatch.com/kenyon-college-students-install-solar-panels-in-belize-during-spring-break-2017/">Montclair Dispatch</a></li>
+            	<li><a href="https://ambergriscaye.com/forum/ubbthreads.php/topics/528371/schools-on-ambergris-caye-to-receive-solar-panels.html">Ambergris Caye</a></li>
+
+
+            </ul>
+          </div>
+          <div class="sidebar_base"></div>
+        </div>
+
+
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>The Work We Do</h1>
         
         <div>
-        	<h1>Project Page</h1>
-        	<p>Why/When the Project Started</p>
-        	<p>Who has been involved</p>
-        	<p>Who are the solar panels for</p>
-        	<p>Types of Solar Panels - diagram of how it works</p>
-        	<p>Links to articles about the Project</p>
-        	<p>Pictures</p>
-        </div>
+        	<p>Every spring break, Professor Robert Alexander and Professor James Skon take a team of students from Kenyon College to Belize to work on building Grid-Tie Solar Systems for several Schools. This service project includes learning about solar power systems, working with Belize schools, and seeing Belize and experiencing it's culture, environment, history, and people.</p>
+        	<p>With the addition of these solar power systems, students are able to have access to new computer labs which are powered by the sun. Not only does this provide a great learning experience, but also can turn an investment into something that will save money down the road. Explore our webpage to learn more about what we do, and to view the solar data live!</p>
+        </div>  
         
+        <img alt="IMG_5475.JPG" class="center" height="450" src="IMG_5475.jpg" width="600" />
+        <img alt="IMG_5473.JPG" class="center" height="450" src="IMG_5473.jpg" width="600" />
+        <img alt="IMG_0107.JPG" class="center" height="450" src="IMG_0107.jpg" width="600" />
+        <img alt="IMG_5611.JPG" class="center" height="450" src="IMG_5611.jpg" width="600" />
+
         
-        
-        
-        <footer class="footer navbar-fixed-bottom">
-            <div class="container-fluid text-left">
-                <p>version 1.0 <br> Powered by Expert Learning Systems, Ltd. © 2016</p>
-            </div>
-        </footer>
-        <script src="Solarx.js"></script>
-    </body>
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="Home.html">Home</a> | <a href="Project.html">Our Work</a> | <a href="Importance.html">Importance</a> | <a href="Solar.html">Current Data</a> | <a href="Locations.html">Last Week</a> | <a href="Graphs.html">History</a></p>
+      <p>Copyright &copy; simplestyle_banner | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">HTML5 Web Templates</a></p>
+    </div>
+  </div>
+  
+<script src="SolarNoData.js"></script>
+
+  
+</body>
 </html>

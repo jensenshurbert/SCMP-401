@@ -1,14 +1,19 @@
+//Jensen Shurbert
+//Created for potential javascript file for connection to cost evaluation data 
+//Example visualization code included but with hardcoded data
+
 var solarXML;
 var numberofelements=0;
 var sym;
 var num;
 var wgt;
 var matchToFind;
+
+//uncomment out once connected to live data
 //var operation="cost";
 
 var dataList = [];
 
-//console.log("Ready!");
 
 
 //called at the beginning to get the XML document and load the dropdown list
@@ -19,11 +24,6 @@ function getXML(document) {
         
     makeChart();
 }
-
-//in other javascript we need to have an array with an object for it - look at W3 Schools example, add an empty array around it bc that is just the inside
-//create another html and js file for summary page 
-//make sure to add it to the Makefile and change reference at bottom of html to get to the correct js
-//first need to change cpp XML structure for 12 hour summary 
 	       
 		    					  
 function getConnection() {

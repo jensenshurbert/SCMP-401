@@ -1,9 +1,9 @@
 var solarXML;
-var numberofelements=0;
-var sym;
-var num;
-var wgt;
-var matchToFind;
+// var numberofelements=0;
+// var sym;
+// var num;
+// var wgt;
+// var matchToFind;
 var operation="12hours";
 
 var dataListSum = [];
@@ -23,10 +23,8 @@ function getXML(document) {
 		bank += 1;
 		bankNum.push(parseInt(bank));
 		dataArray = [];
-		//console.log("Bank sir!");
 			$(this).find("qWattsMin1").each(function(){
 			var wattsorvolts = $(this).text();
-			//console.log("Data:"+wattsorvolts);
 			//var wattsorvolts = this.value;
 			dataArray.push(parseInt(wattsorvolts));
 		});
@@ -50,26 +48,35 @@ function getXML(document) {
     makeChartSummary();
 }
 
-//in other javascript we need to have an array with an object for it - look at W3 Schools example, add an empty array around it bc that is just the inside
-//create another html and js file for summary page 
-//make sure to add it to the Makefile and change reference at bottom of html to get to the correct js
-//first need to change cpp XML structure for 12 hour summary 
+
 	       
 		    					  
 function getConnection() {
-	getXML(getTestXML());
-//  $.ajax({
-// 		url: '/cgi-bin/shurbertj_solarConnection.cgi?operation='+operation,
-// 		dataType: 'text xml',
-// 		success: getXML,
-// 		error: function(){alert("Error: Something went wrong");}
-//     });
+	//getXML(getTestXML());
+ $.ajax({
+		url: '/cgi-bin/shurbertj_solarConnection.cgi?operation='+operation,
+		dataType: 'text xml',
+		success: getXML,
+		error: function(){alert("Error: Something went wrong");}
+    });
     }
 
 
 $(document).ready(function(){
+
+ 	$(document).ajaxStart(function () {
+	$("#loading").show();
+	console.log("did it appear??")
+    }).ajaxStop(function () {
+	$("#loading").hide();
+    });
+
 	getConnection();
  	//initial things
+ 	
+
+ 	
+ 	
     });
 
 

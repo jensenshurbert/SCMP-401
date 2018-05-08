@@ -84,46 +84,8 @@ int sites::numSites() {
 	return allSites.size();
 }
 
-//ask her to output a datetimestamp 
-// string sites::lastWeek(int sitenum,string wattsOrVolts){
-//     string results="";
-//     sql::Driver* driver = sql::mysql::get_driver_instance();
-//     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
-//     con->setSchema(database);
-//     std::auto_ptr<sql::Statement> stmt(con->createStatement());
-// 
-//     results=("<site><name>"+allSites[sitenum].getSiteName()+"</name><maxWatts>"+to_string(al\
-// lSites[sitenum].getMaxWatts())+"</maxWatts><numBanks>"+to_string(allSites[sitenum].getNumBan\
-// ks())+"</numBanks>");
-//     for(int i=0;i<allSites[sitenum].getNumBanks();i++){
-//       results+="<bank>";
-//       stmt->execute("SELECT DAYOFWEEK(TimeStamp) AS DAY,HOUR(TimeStamp) as HOUR,AVG(Response\
-// ) AS AVG FROM `Answers` WHERE IID = '"+allSites[sitenum].getBankIDs(i)+"' AND QID = '" + wat\
-// tsOrVolts +"' AND YEARWEEK (TimeStamp) = YEARWEEK( current_date -interval 1 week ) GROUP BY \
-// DAY, HOUR;");
-//       std::auto_ptr< sql::ResultSet> res;
-// 
-//       string lastDate="";
-//       string currentDate="";
-// 
-//       do{
-//         res.reset(stmt->getResultSet());
-//         while(res->next()){
-//           currentDate=res->getString("DAY");
-//           if(lastDate!=currentDate){
-//             results+=("<dayofweek>"+currentDate+"</dayofweek>");
-//           }
-//           lastDate=currentDate;
-//           results+=("<hour>"+res->getString("HOUR")+"</hour>");
-//           results+=("<"+wattsOrVolts+">"+res->getString("AVG")+"</"+wattsOrVolts+">");
-//         }
-//       }while(stmt->getMoreResults());
-//       results+="</bank>";
-//     }
-//     results+="</site>";
-// 
-//     return results;
-// }
+//This function has a problem when the current date of "1" doesn't have data but the rest of the week does
+//it creates a </day> tag without a <day> tag
 string sites::lastWeek(int sitenum,string wattsOrVolts){
     string results="";
     sql::Driver* driver = sql::mysql::get_driver_instance();
@@ -186,6 +148,36 @@ ites[sitenum].getMaxWatts())+"</maxWatts><numBanks>"+to_string(allSites[sitenum]
       while(res->next()){
         results+=("<mostrecent>"+res->getString("TimeStamp")+"</mostrecent>");
         results+=("<"+wattsOrVolts+">"+res->getString("Response")+"</"+wattsOrVolts+">");
+      }
+    }while(stmt->getMoreResults());
+    results+="</bank>";
+  }
+  results+="</site>";
+  return results;
+}
+
+
+string sites::yesterday(int sitenum, string wattsOrVolts){
+  string results="";
+  sql::Driver* driver = sql::mysql::get_driver_instance();
+  std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
+  con->setSchema(database);
+  std::auto_ptr<sql::Statement> stmt(con->createStatement());
+
+  results=("<site><name>"+allSites[sitenum].getSiteName()+"</name>");
+  for(int i=0;i<allSites[sitenum].getNumBanks();i++){
+    results+="<bank>";
+    stmt->execute("SELECT HOUR(TimeStamp) as HOUR,AVG(Response) AS AVG FROM `Answers` WHERE \
+IID = '"+allSites[sitenum].getBankIDs(i)+"' AND QID='"+wattsOrVolts +"' AND YEARWEEK (TimeSt\
+amp) = YEARWEEK( current_date -interval 1 day ) AND (TimeStamp >= DATE_SUB(CURDATE(), INTERV\
+AL 1 DAY) AND TimeStamp < CURDATE()) GROUP BY HOUR;");
+    std::auto_ptr< sql::ResultSet> res;
+    do{
+      res.reset(stmt->getResultSet());
+      while(res->next()){
+        results+=("<hour>" + res->getString("HOUR") + "</hour>");
+        results+=("<"+ wattsOrVolts + ">" + res->getString("AVG") + "</"+ wattsOrVolts + ">"\
+);
       }
     }while(stmt->getMoreResults());
     results+="</bank>";
