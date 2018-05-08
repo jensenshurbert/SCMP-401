@@ -1882,3 +1882,10 @@ Each div has a container number correlating to it (ex. container3), is built a s
 
 #### Moving Forward
 Now that I have the visualizations working, I need to reconnect the website to the live data. I also plan to use the History page as a way for students to attain raw data, so I need to meet with Professor Skon about the best way to do this. Other than that, I will either leave the rest of the website to Professor Skon to fill in with information he wants people to see, or I will gather information from his other websites and include them in mine. 
+
+
+# Final Week Notebook
+### 4/30/18-5/6/18
+
+#### Overview
+This week I finalized my code in preparation for Professor Skon to take over the project. This includes adding comments, removing extra debugging code, and organizing existing code. I met with Professor Skon to discuss the progress that needs to still be made on the project, so we are both on the same page. 
