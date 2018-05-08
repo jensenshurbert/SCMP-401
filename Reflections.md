@@ -52,3 +52,19 @@ After the past few weeks, it has become very obvious that the amount of work tha
 
 4. Moving forward 
 I need to make sure that I keep motivated in my project so that I don't fall behind at the end of the semester. I have found that I enjoy this project more when I don't feel a major time crunch. 
+
+# Reflection 4
+#### Final Presentation
+I felt like I made a lot of progress since my last presentation. There was definitely some issues that came along the way but I was able to meet with various people in my group to try and sort them out. Overall, in these past few weeks, I was able to get my project to a point where it appears to be much closer to a final product. 
+
+1. Group Work
+These past week have included a lot of group work. I was very reliant on Kara and her code working in a very specific way. There were multiple issues that I came across where I had to figure out who would be more equipt to solve them. This allowed me to work directly with Kara to talk out the issues I was coming across and how to best fix them as a pair. 
+
+2. Overcomming Issues
+There were a few problems that I came across in the past few weeks that normally would have been much larger step backs. Since I was on a larger time crunch, if I found a problem and figured that I couldn't fix it alone, I wouldn't wait as long to reach out to Kara of Professor Skon to devise a plan. This allowed me to not get frustrated throughout the process and keep moving forward. 
+
+3. Cleaning up code for future
+Another skill that I gained was the ability to clean up, comment and make my code more organized for whoever is taking on this project next. Not that my code was that disorganized, but there were a lot of sections of code that were commented out or had a lot of debugging code mixed in them. With this, I even found places where a different organization of my code would make much more sense. 
+
+4. Overall
+Overall, I think I learned alot from this experience. In addition to becoming much better at coding, I learned much more about how systems work together. This project allowed me to become a great problem solver and taught me to not dwell too much on larger issues without consulting with others. Team work became a great part of this project and although I wasn't expecting it, I think it was one of the most rewarding aspects to the project. 
